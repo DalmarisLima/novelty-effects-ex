@@ -1,0 +1,82 @@
+<div>
+    <div layout="row" layout-align="center center">
+        <md-card layout="column" layout-align="center center" flex="auto" width="50%">
+            <md-toolbar layout="row" layout-align="space-between center" layout-padding class="md-primary md-hue-2">
+                <div layout="column">
+                    <img src="assets/default/images/ufal.png">
+                </div>
+                <div layout="row" layout-align="center center">
+                    <label>Estudo sobre Ansiedade em Ambientes Educacionais Gamificados</label>
+                </div>
+                <div layout="column" layout-align="end end">
+                    <img src="assets/default/images/ic.png">
+                </div>
+            </md-toolbar>
+            <md-divider>
+                <md-card-content layout-padding layout-margin ng-show="!start">
+                    <label><b>Termo de Consentimento Livre e Esclarecido</b></label>
+                    <br>
+                    <p> Você está sendo convidado(a) a participar, como voluntário(a), de um estudo sobre ansiedade em ambientes educacionais gamificados, conduzido pelo estudante Josmário Albuquerque do curso de graduação em Ciência da Computação do Instituto de Computação da Universidade Federal de Alagoas. </p>
+                    <p> Este estudo tem por objetivo medir o quanto um ambiente de aprendizagem gamificado pode influenciar a ansiedade de seus usuários. </p>
+                    <p> Você foi selecionado(a) de forma arbitrária e sua participação não é obrigatória. A qualquer momento, você poderá desistir de participar deste estudo. Sua recusa, desistência ou retirada de consentimento não acarretará prejuízo. </p>
+                    <p>A princípio, este estudo não possui nenhum risco para seus participantes. No entanto, caso você sofra de algum transtorno de ansiedade, aconselha-se a não participar do mesmo. Além disso, em alguns momentos serão emitidos alguns sinais sonoros e, portanto, aconselha-se deixar o volume da saída de áudio em nível médio para evitar possíveis incidentes. </p>
+                    <p>O participante deste estudo não será remunerado em hipótese alguma. Além disso, a participação no mesmo não implica em nenhum gasto para os participantes. No entanto, não nos responsabilizamos por quaisquer problemas técnicos que possam vir a ocorrer durante a execução desta pesquisa.</p>
+                    <p> Sua participação nesta pesquisa consistirá em executar três atividades. Primeiro, será aplicado um questionário de ansiedade. Em seguida, você será direcionado(a) para uma outra página com o protótipo de um sistema tutor onde você responderá a perguntas básicas de raciocínio. Finalmente, você será direcionado(a) para a última página onde, novamente, responderá ao questionário de ansiedade. </p>
+                    <p>Durante a execução, somente suas respostas serão coletadas. Todo o processo tem duração aproximada de 10 minutos. Os dados obtidos por meio desta pesquisa serão confidenciais e não serão divulgados em nível individual, visando assegurar o sigilo de sua participação. O pesquisador responsável se comprometeu a tornar públicos nos meios acadêmicos e científicos os resultados obtidos de forma consolidada sem qualquer identificação de indivíduos participantes. </p>
+                    <p>A qualquer momento você poderá contactar o estudante responsável através do endereço eletrônico <a href="mailto:jas@ic.ufal.br?Subject=Estudo%20sobre%20Ansiedade" target="_top">jas@ic.ufal.br</a>, onde você poderá tirar suas dúvidas sobre o projeto e sobre sua participação nele.</p>
+                    <p> Caso você concorde em participar desta pesquisa, basta marcar o campo abaixo para prosseguir.</p>
+                    <md-checkbox ng-click="start=true; setTime()"><b>Declaro que entendi os objetivos, riscos e benefícios de minha participação na pesquisa, e que concordo em participar.</b></md-checkbox>
+                </md-card-content>
+        </md-card>
+    </div>
+    <div layout="row" layout-align="center center" ng-show="start" class="bg">
+        <md-card layout="column" layout-align="center center" flex="auto" width="50%">
+            <md-card-title layout="column">
+                <h2>Etapa I - Questionário Inicial</h2>
+                <p>Responda as questões abaixo marcando as alternativas que mais se aproximam do estado em que você se encontra.</p>
+            </md-card-title>
+            <md-card-content>
+                <form>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label ng-required="true">Gênero</label>
+                            <md-select ng-required="true" ng-model="gender">
+                                <md-option ng-repeat="g in ['Masculino','Feminino', 'Prefiro não Responder']">
+                                    {{g}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Idade</label>
+                            <input type="text" name="age" ng-required="true" ng-model="age">
+                             
+                        </md-input-container>
+                    </div>
+                    <div ng-repeat="q in questions">
+                        <h3>{{q}}</h3>
+                        <div layout="row">
+                            <p>Quase sempre</p>
+                            <md-radio-group ng-model="answers[$index]" layout="row" class="md-primary">
+                                <label>1</label>
+                                <md-radio-button value="1" aria-label="option 1"></md-radio-button>
+                                <label>2</label>
+                                <md-radio-button value="2" aria-label="option 2"></md-radio-button>
+                                <label>3</label>
+                                <md-radio-button value="3" aria-label="option 3"></md-radio-button>
+                                <label>4</label>
+                                <md-radio-button value="4" aria-label="option 4"></md-radio-button>
+                            </md-radio-group>
+                            <p>Quase sempre</p>
+                        </div>
+                        </p>
+                        </p>
+                        <md-divider></md-divider>
+                    </div>
+                    <md-button ng-click="processAnswers()" type="submit" class="md-raised md-primary">Próxima Etapa</md-button>
+                    <span>{{msg}}
+                    </span>
+                </form>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>
