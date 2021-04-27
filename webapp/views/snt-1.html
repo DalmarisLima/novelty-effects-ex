@@ -1,9 +1,8 @@
-<div md-theme="{{dynamicTheme()}}" layout="column">
-
+<div md-theme="{{dynamicTheme()}}">
     <div class="navbar text-white bg-secondary p-3 mb-2">
         <div class="container">
             <div class="col-10  align-middle">
-                <h5 class="card-title">Simulado</h5>
+                <h5 class="card-title">Etapa III - Questionário Final</h5>
             </div>
             <img ng-src="{{getAvatar()}}" class="profile border border-secondary" width="50px">
         </div>
@@ -15,7 +14,6 @@
         <div class="card" style="width: 100%; margin-top: 15px;">
             <h4 class="card-header">Etapa II - Simulado</h4>
             <div class="card-body">
-
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="col-sm-16">
@@ -72,34 +70,10 @@
                             </div>
                         </div>
                     </div>
+
+
                     <div class="col ">
                         <div class="col-sm-16">
-                            <div class="card" ng-show="showAvatar" style="margin-bottom: 20px;">
-                                <h5 class="card-header">Escolha o seu avatar</h5>
-
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col text-center" ng-click="setAvatar(getImage(1))"
-                                            style="margin: 10px;">
-                                            <img ng-src="{{getImage(1)}}" class="rounded img-thumbnail">
-                                        </div>
-                                        <div class="col text-center" ng-click="setAvatar(getImage(2))"
-                                            style="margin: 10px;">
-                                            <img ng-src="{{getImage(2)}}" class="rounded img-thumbnail">
-                                        </div>
-                                        <div class="col text-center" ng-click="setAvatar(getImage(3))"
-                                            style="margin: 10px;">
-                                            <img ng-src="{{getImage(3)}}" class="rounded img-thumbnail">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="container">
-                                    <button ng-click="hideAvatar()" class="btn btn-secondary"
-                                        style="width: 100%; margin-top: 25px; margin-bottom: 15px;">Escolher
-                                    </button>
-                                </div>
-                            </div>
-
                             <div class="card mb-3" style="width: 100%;" ng-show="showQuestions">
                                 <div class="card-header text-center">
                                     <p class="card-title">
@@ -125,42 +99,23 @@
 
                             </div>
                             <div ng-if="!checkSet1()">
-                                <md-card layout="column" layout-align="center left" class="md-primary" layout-padding>
-                                    <h3>Etapa finalizada!</h3>
-                                    <md-button ng-click="showPosttest()" flex="50" class="md-primary md-raised">
-                                        Continuar</md-button>
-                                </md-card>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-3 text-center">
-                        <div class="col-sm-16">
-                            <div class="card mb-3" style="width: 100%;">
-                                <div class="card-header text-center">
-                                    <h5 class="card-title">Meus Troféus</h5>
-                                </div>
-                                <div class="card-body">
-
+                                <div class="card">
+                                    <h3 class="card-body text-center">Etapa finalizada</h3>
                                     <div class="container">
-                                        <div>
-                                            <img ng-src="{{getBadge('badge5')}}" flex="40">
-                                        </div>
-                                        <div>
-                                            <img ng-src="{{getBadge('badge10')}} " flex="40">
-                                        </div>
-                                        <div>
-                                            <img ng-src="{{getBadge('badge')}}" flex="40">
-                                        </div>
+                                        <button ng-click="showPosttest()" class="btn btn-secondary"
+                                        style="width: 100%; margin-top: 25px; margin-bottom: 15px;">
+                                        Continuar</button>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
+
+
+                    
                 </div>
             </div>
+
         </div>
     </div>
 </div>

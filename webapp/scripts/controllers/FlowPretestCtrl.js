@@ -1,4 +1,4 @@
-angular.module("tutor").controller("FlowPretestCtrl", function ($scope, $location, configService, User) {
+angular.module("tutor").controller("FlowPretestCtrl", function ($scope, $location, configService, User, ) {
 
     var themes = ["default", "stFemale", "stMale"];
 
@@ -16,10 +16,15 @@ angular.module("tutor").controller("FlowPretestCtrl", function ($scope, $locatio
         "A experiência é extremamente recompensadora",];
     $scope.answers = [];
 
+    $scope.setTime = function () {
+        var time = new Date().getTime();
+        User.setStartTime(time);
+    };
+
     $scope.processAnswers = function () {
         //console.log($scope.answers);
         //  validation
-        if ($scope.answers.length < 2) {
+        if ($scope.answers.length < 9) {
             $scope.msg = "Por favor, responda todas as perguntas!"
         }
         else {
@@ -39,7 +44,7 @@ angular.module("tutor").controller("FlowPretestCtrl", function ($scope, $locatio
             ans[6] = 6 - ans[6];
             ans[7] = 6 - ans[7];
             ans[8] = 6 - ans[8];
-            //ans[19] = 5 - ans[19];
+
             var sum = ans.reduce(add, 0);
 
             console.log(ans);

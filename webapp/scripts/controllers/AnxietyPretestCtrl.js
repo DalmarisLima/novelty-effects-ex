@@ -11,16 +11,12 @@ angular.module('tutor').controller("AnxietyPretestCtrl", function ($scope, $wind
 
     $scope.answers = [];
 
-    $scope.setTime = function () {
-        var time = new Date().getTime();
-        User.setStartTime(time);
-    };
 
     $scope.processAnswers = function () {
 
         //console.log($scope.answers);
         //  validation
-        if ($scope.answers.length < 4) {
+        if ($scope.answers.length < 6) {
             $scope.msg = "Por favor, responda todas as perguntas!"
         } else {
             function add(a, b) {
@@ -42,7 +38,6 @@ angular.module('tutor').controller("AnxietyPretestCtrl", function ($scope, $wind
 
             console.log(ans);
             console.log("AnxietyPRETEST: " + sum);
-
 
             User.setGender($scope.gender);
             User.setAge($scope.age);

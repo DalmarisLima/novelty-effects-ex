@@ -1,3 +1,3 @@
-responseId;startTime;endTime;gender;age;testType;flowPre;anxietyPre;activityPoints;anxietyPost;anxietyRawPre;anxietyRawPost;flowRawPre
-acef0850-9bbe-11eb-a12b-db2645456b2f;1618252835919;1618252880881;;;default;0;8;2;50;;4,4,1,1,4,1,1,4,1,4,4,1,1,1,4,4,1,1,4,4
-d6a06720-9bbe-11eb-a12b-db2645456b2f;1618252905690;1618252950861;Feminino;26;stFemale;0;8;3;49;;2,3,2,2,3,2,2,3,2,3,3,2,2,2,3,3,2,2,3,3
+responseId;startTime;endTime;gender;age;testType;flowPre;anxietyPre;activityPoints;anxietyPost;flowPost;anxietyRawPre;anxietyRawPost;flowRawPre;flowRawPost
+09b3b330-9d48-11eb-981a-793876252a58;0;1618421828725;Masculino;95;default;34;20;3;21;29;1,4,4,3,4,4;4,3,4,3,3,4;4,4,4,3,3,4,3,4,5;1,4,3,3,4,3,3,4,4
+bcf5c820-a482-11eb-8094-3737519d3c48;0;1619216697650;;;;0;0;0;0;43;;;;5,4,5,4,5,5,5,5,5

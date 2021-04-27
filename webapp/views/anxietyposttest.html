@@ -1,0 +1,82 @@
+<div class="  text-white text-center bg-secondary p-3 mb-2">
+    <div class="container">
+    <h5 class="card-title ">Etapa III - Questionário Final</h5>
+    </div>
+</div>
+
+<div class="container">
+    <div layout="row" layout-align="center center" class="bg">
+        <div class="card" style="width: 100%; margin-top: 15px;">
+            <div class="card-header">
+                <h4>Etapa III - Questionário Final - 1/2</h4>
+            </div>
+            <div class="container">
+                <div class="card-body">
+                    <p> Leia cada afirmativa abaixo e indique como você̂ se sente <strong>AGORA</strong>, neste momento.
+                        Não gaste muito
+                        tempo numa única afirmação, mas tente dar uma resposta que mais se aproxima de como você se
+                        sente
+                        <strong>NESTE MOMENTO</strong> depois da atividade.
+                    </p>
+                    <div class="container">
+                        <p><strong>Marque, par cada pergunta, o número correspondente abaixo
+                                para:</strong> </p>
+                        <ul class="nav" style="padding: 20px;">
+                            <div style="padding-left: 10px;">
+                                <li class="nav-item">
+                                    <strong class="text-primary">1</strong> - Quase nunca
+                                </li>
+                            </div>
+                            <div style="padding-left: 10px;">
+                                <li class="nav-item">
+                                    <strong class="text-primary">2</strong> - Às vezes
+                                </li>
+                            </div>
+                            <div style="padding-left: 10px;">
+                                <li class="nav-item">
+                                    <strong class="text-primary">3</strong> - Frequentemente
+                                </li>
+                            </div>
+                            <div style="padding-left: 10px;">
+                                <li class="nav-item">
+                                    <strong class="text-primary">4</strong> - Quase sempre
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container">
+                    <form>
+                        <div class="container" ng-repeat="q in questions"
+                            style="width: 100%; margin-top: 25px; margin-bottom: 25px;">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h5>{{q}}</h5>
+                                </div>
+                                <div class="col-sm-4">
+                                    <md-radio-group ng-model="answers[$index]" layout="row" class="md-primary">
+                                        <label><strong>1</strong></label>
+                                        <md-radio-button value="1" aria-label="option 1"></md-radio-button>
+                                        <label><strong>2</strong></label>
+                                        <md-radio-button value="2" aria-label="option 2"></md-radio-button>
+                                        <label><strong>3</strong></label>
+                                        <md-radio-button value="3" aria-label="option 3"></md-radio-button>
+                                        <label><strong>4</strong></label>
+                                        <md-radio-button value="4" aria-label="option 4"></md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                            </div>
+                            <md-divider></md-divider>
+                        </div>
+                        <div class="container">
+                            <span><strong class="text-danger">{{msg}}</strong></span>
+                            <button ng-click="processAnswers()" type="submit" class="btn btn-secondary"
+                                style="width: 100%; margin-top: 25px; margin-bottom: 15px;">Próximo</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

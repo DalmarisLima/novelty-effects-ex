@@ -1,0 +1,87 @@
+<div md-theme="{{dynamicTheme()}}">
+    <div class="navbar text-white bg-secondary p-3 mb-2">
+        <div class="container">
+            <div class="col-10  align-middle">
+                <h5 class="card-title">Etapa II - Simulado </h5>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="container">
+        <div class="card" style="width: 100%; margin-top: 15px;">
+            <h4 class="card-header">Etapa II - Simulado</h4>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="col-sm-16">
+                            <div class="card-deck">
+                                <div class="card text-center mb-3">
+                                    <h6 class="card-header">Pontos</h6>
+                                    <div class="card-body">
+                                        <h2>{{getPoints()}}</h2>
+                                    </div>
+                                    <div ng-if="increment">
+                                        <h3 class="success" layout-margin>+1</h3>
+                                    </div>
+                                    <div ng-if="decrement">
+                                        <h3 class="fail" layout-margin>-1</h3>
+                                    </div>
+                                </div>
+                                <div class="card text-center  mb-3 ">
+                                    <h6 class="card-header">Acertos</h6>
+                                    <div class="card-body">
+                                        <h2> {{getLevel()}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+
+                    </div>
+                    <div class="col ">
+                        <div class="col-sm-16">
+                            <div class="card mb-3" style="width: 100%;" ng-show="showQuestions">
+                                <div class="card-header text-center">
+                                    <p class="card-title">
+                                        Responda as questões abaixo para ganhar pontos,
+                                        troféus e atingir uma melhor posição no ranking!
+                                    </p>
+                                    <md-progress-linear class="md-primary " md-mode="determinate " value="{{progress}}">
+                                    </md-progress-linear>
+                                    <label layout-margin><b>Questão {{getQuestion()}}/20</b></label>
+                                </div>
+                                <img class="card-img-top" src="{{question()}} " alt="Imagem de capa do card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-left">A resposta certa é:</h5>
+                                    <div ng-repeat="item in items " ng-click="processAnswer($index)">
+                                        <button class="btn btn-outline-secondary border-0 ">Letra {{item}}</button>
+                                    </div>
+
+                                    <div class="alert text-center"
+                                        style="background-color:{{getBgColor()}}; color:white" ng-show="showMessage()">
+                                        {{getMessage()}}
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div ng-if="!checkSet1()">
+                                <div class="card">
+                                    <h3 class="card-body text-center">Etapa finalizada</h3>
+                                    <div class="container">
+                                        <button ng-click="showPosttest()" class="btn btn-secondary"
+                                        style="width: 100%; margin-top: 25px; margin-bottom: 15px;">
+                                        Continuar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

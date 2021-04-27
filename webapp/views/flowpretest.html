@@ -1,45 +1,136 @@
-<div layout-padding>
-    <div layout="row" layout-align="center center" >
-        <md-card layout="column" layout-align="center center" flex="auto" width="50%">
-            <md-toolbar layout="row" layout-align="center center" layout-padding class="md-primary md-hue-2">
-                <label>Etapa II - Questionário Final</label>
-            </md-toolbar>
-        </md-card>
+<div class="row text-white bg-secondary ">
+    <div class="col">
+        <img class="float-right" src="assets/default/images/ufal.png">
     </div>
-    <div layout="row" layout-align="center center" class="bg">
-        <md-card layout="column" layout-align="center center" flex="auto" width="50%">
-            <md-card-title>
-                <p> Para finalizar, responda as questões abaixo marcando as alternativas que melhor se adequem ao seu estado psicológico atual.</p>
-            </md-card-title>
-            <md-card-content>
-                <form>
-                    <div ng-repeat="q in questions">
-                        <h3>{{q}}</h3>
-                        <div layout="row">
-                            <p>Absolutamente Não </p>
-                            <md-radio-group ng-model="answers[$index]" layout="row" class="md-primary">
-                                <label>1</label>
-                                <md-radio-button value="1" aria-label="option 1"></md-radio-button>
-                                <label>2</label>
-                                <md-radio-button value="2" aria-label="option 2"></md-radio-button>
-                                <label>3</label>
-                                <md-radio-button value="3" aria-label="option 3"></md-radio-button>
-                                <label>4</label>
-                                <md-radio-button value="4" aria-label="option 4"></md-radio-button>
-                                <label>5</label>
-                                <md-radio-button value="5" aria-label="option 4"></md-radio-button>
-                            </md-radio-group>
-                            <p>Muitíssimo</p>
-                        </div>
-                        </p>
-                        </p>
-                        <md-divider></md-divider>
-                    </div>
-                    <md-button ng-click="processAnswers()" type="submit" class="md-raised md-primary">Concluir!</md-button>
-                    <span>{{msg}}</span>
-
-                </form>
-            </md-card-content>
-        </md-card>
+    <div class="col-6">
+        <h6 class="text-center" style="margin-top: 40px;">Estudo sobre Ansiedade em Ambientes Educacionais Gamificados
+        </h6>
+    </div>
+    <div class="col ">
+        <img class="float-left" src="assets/default/images/ic.png">
     </div>
 </div>
+<div class="container">
+    <div layout="row" layout-align="center center" class="bg">
+        <div class="card" style="width: 100%; margin-top: 15px;">
+            <h4 class="card-header">Etapa I - Questionário Inicial</h4>
+            <div class="card-body">
+                <div class="row justify-content-md-center">
+
+                    <div class="col-lg-3">
+                        <div class="col-sm-16">
+                            <div class="card-deck">
+                                <div class="card text-center  mb-3">
+                                    <h6 class="card-header">Pontos</h6>
+                                    <div class="card-body">
+                                        <h3>{{getPoints()}}</h3>
+                                    </div>
+                                    <div ng-if="increment">
+                                        <h3 class="success" layout-margin>+1</h3>
+                                    </div>
+                                    <div ng-if="decrement">
+                                        <h3 class="fail" layout-margin>-1</h3>
+                                    </div>
+                                </div>
+                                <div class="card text-center  mb-3 ">
+                                    <h6 class="card-header">Acertos</h6>
+                                    <div class="card-body">
+                                        <h3> {{getLevel()}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="col-sm-16">
+                            <div class="card">
+                                <h5 class="card-header">Parte2/2</h5>
+                                <div class="container">
+                                    <div class="card-body">
+                                        <p>
+                                            Por favor, responda às seguintes questões com relação à sua experiência na
+                                            atividade escolhida. Estas questões estão relacionadas com os pensamentos e
+                                            sensações que você pode experienciar durante a participação numa atividade.
+                                            Você pode experienciar estas características em alguns momentos, a todo
+                                            momento ou em nenhum momento. Não há respostas certas ou erradas. Pense
+                                            sobre quão frequentemente você experimenta cada característica durante sua
+                                            atividade e então marque o número que melhor representa sua experiência.
+                                        </p>
+                                        <p><strong>Marque, par cada pergunta, o número correspondente abaixo para:</strong> </p>
+                                        <ul class="nav" style="padding: 20px;">
+                                            <div style="padding-left: 10px;">
+                                                <li class="nav-item">
+                                                    <strong class="text-primary">1</strong> - Nunca
+                                                </li>
+                                            </div>
+                                            <div style="padding-left: 10px;">
+                                                <li class="nav-item">
+                                                    <strong class="text-primary">2</strong> - Raramente
+                                                </li>
+                                            </div>
+                                            <div style="padding-left: 10px;">
+                                                <li class="nav-item">
+                                                    <strong class="text-primary">3</strong> - Às vezes
+                                                </li>
+                                            </div>
+                                            <div style="padding-left: 10px;">
+                                                <li class="nav-item">
+                                                    <strong class="text-primary">4</strong> - Frequentemente
+                                                </li>
+                                            </div>
+                                            <div style="padding-left: 10px;">
+                                                <li class="nav-item">
+                                                    <strong class="text-primary">5</strong> - Sempre
+                                                </li>
+                                            </div>
+                                        </ul>
+                                        <div class="container">
+                                            <form>
+                                                <div class="container" ng-repeat="q in questions"
+                                                    style="width: 100%; margin-top: 25px; margin-bottom: 25px;">
+                                                    <div class="row">
+                                                        <div class="col-sm-7">
+                                                            <h5>{{q}}</h5>
+                                                        </div>
+                                                        <div class="col-sm-5">
+                                                            <md-radio-group ng-model="answers[$index]" layout="row"
+                                                                class="md-primary">
+                                                                <label><strong>1</strong></label>
+                                                                <md-radio-button value="1" aria-label="option 1">
+                                                                </md-radio-button>
+                                                                <label><strong>2</strong></label>
+                                                                <md-radio-button value="2" aria-label="option 2">
+                                                                </md-radio-button>
+                                                                <label><strong>3</strong></label>
+                                                                <md-radio-button value="3" aria-label="option 3">
+                                                                </md-radio-button>
+                                                                <label><strong>4</strong></label>
+                                                                <md-radio-button value="4" aria-label="option 4">
+                                                                </md-radio-button>
+                                                                <label><strong>5</strong></label>
+                                                                <md-radio-button value="5" aria-label="option 4">
+                                                                </md-radio-button>
+                                                            </md-radio-group>
+                                                        </div>
+                                                    </div>
+                                                    <md-divider></md-divider>
+                                                </div>
+                                                <div class="container">
+                                                    <span><strong class="text-danger"> {{msg}}</strong> </span>
+
+                                                    <button type="button" class="btn btn-secondary"
+                                                        style="width: 100%; margin-top: 25px; margin-bottom: 15px;"
+                                                        ng-click="processAnswers()" type="submit">Próxima
+                                                        Etapa</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,87 @@
+<div class="  text-white text-center bg-secondary p-3 mb-2">
+    <div class="container">
+    <h5 class="card-title ">Etapa III - Questionário Final</h5>
+    </div>
+</div>
+
+
+<div class="container">
+    <div layout="row" layout-align="center center" class="bg">
+        <div class="card" style="width: 100%; margin-top: 15px;">
+            <div class="card-header">
+                <h4>Etapa III - Questionário Final - 2/2</h4>
+            </div>
+            <div class="container">
+                <div class="card-body">
+                    <p> Para finalizar, por favor, responda às seguintes questões com relação à sua experiência na
+                        atividade que acabou de finalizar. Não há respostas certas ou erradas. Pense sobre sua
+                        concordância em cada uma das sentenças apresentadas e então marque o número que melhor
+                        representa sua concordância.
+                    </p>
+                    <p><strong>Marque, par cada pergunta, o número correspondente abaixo para:</strong> </p>
+                    <ul class="nav" style="padding: 20px;">
+                        <div style="padding-left: 10px;">
+                            <li class="nav-item">
+                                <strong class="text-primary">1</strong> - Nunca
+                            </li>
+                        </div>
+                        <div style="padding-left: 10px;">
+                            <li class="nav-item">
+                                <strong class="text-primary">2</strong> - Raramente
+                            </li>
+                        </div>
+                        <div style="padding-left: 10px;">
+                            <li class="nav-item">
+                                <strong class="text-primary">3</strong> - Às vezes
+                            </li>
+                        </div>
+                        <div style="padding-left: 10px;">
+                            <li class="nav-item">
+                                <strong class="text-primary">4</strong> - Frequentemente
+                            </li>
+                        </div>
+                        <div style="padding-left: 10px;">
+                            <li class="nav-item">
+                                <strong class="text-primary">5</strong> - Sempre
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="container">
+                    <form>
+                        <div class="container" ng-repeat="q in questions"
+                            style="width: 100%; margin-top: 25px; margin-bottom: 25px;">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h5>{{q}}</h5>
+                                </div>
+                                <div class="col-sm-4">
+                                    <md-radio-group ng-model="answers[$index]" layout="row" class="md-primary">
+                                        <label><strong>1</strong></label>
+                                        <md-radio-button value="1" aria-label="option 1"></md-radio-button>
+                                        <label><strong>2</strong></label>
+                                        <md-radio-button value="2" aria-label="option 2"></md-radio-button>
+                                        <label><strong>3</strong></label>
+                                        <md-radio-button value="3" aria-label="option 3"></md-radio-button>
+                                        <label><strong>4</strong></label>
+                                        <md-radio-button value="4" aria-label="option 4"></md-radio-button>
+                                        <label><strong>5</strong></label>
+                                        <md-radio-button value="5" aria-label="option 5"></md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                            </div>
+                            <md-divider></md-divider>
+                        </div>
+                        <div class="container">
+                            <span><strong class="text-danger">{{msg}}</strong></span>
+                            <button ng-click="processAnswers()" type="submit" class="btn btn-secondary"
+                                style="width: 100%; margin-top: 25px; margin-bottom: 15px;">Concluir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

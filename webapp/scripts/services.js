@@ -1,6 +1,6 @@
 var tutorServices = angular.module("tutor.services", []);
 
-tutorServices.service("configService", function() {
+tutorServices.service("configService", function () {
 
     var opts = ["default", "stMale", "stFemale"];
 
@@ -8,114 +8,125 @@ tutorServices.service("configService", function() {
     var currentTheme = opts[random];
     // var currentTheme = "default";
 
+
     var next = false;
 
     var badgeFlags = [false, false, false];
-
-    this.setTheme = function(value) {
+ 
+    this.setTheme = function (value) {
         console.log("setting theme: " + value);
         currentTheme = value;
     };
 
-    this.getTheme = function() {
+    this.getTheme = function () {
         return currentTheme;
     };
 
-    this.setNext = function(value) {
+    this.setNext = function (value) {
         next = value;
     };
 
-    this.getNext = function() {
+    this.getNext = function () {
         return next;
     };
 
-    this.addBadge = function(id) {
+    this.addBadge = function (id) {
         badgeFlags[id] = true;
     };
 
-    this.getBadges = function() {
+    this.getBadges = function () {
         return badgeFlags;
     };
 
 });
 
-tutorServices.service("User", function($http) {
+tutorServices.service("User", function ($http) {
     var resp = {
         startTime: 0,
         endTime: 0,
         gender: "",
         age: "",
         testType: "",
-        flowPretestPoints: 0,
-        anxietyPretestPoints: 0,
+        flowPreTestPoints: 0,
+        anxietyPreTestPoints: 0,
         activityPoints: 0,
-        posttestPoints: 0,
+        anxietyPostTestPoints: 0,
+        flowPostTestPoints: 0,
         flowPre: [],
+        flowPost: [],
         anxietyPre: [],
-        post: []
+        anxietyPost: []
     };
 
-    this.setGender = function(value) {
+    this.setGender = function (value) {
         resp.gender = value;
     };
 
-    this.setAge = function(value) {
+    this.setAge = function (value) {
         resp.age = value;
     };
 
-    this.setTestType = function(value) {
+    this.setTestType = function (value) {
         resp.testType = value;
     };
 
-    this.setFlowPretestPoints = function(value) {
-        resp.setFlowPretestPoints = value;
+    this.setFlowPretestPoints = function (value) {
+        resp.flowPreTestPoints = value;
     };
 
-    this.setAnxietyPretestPoints = function(value) {
-        resp.anxietyPretestPoints = value;
+    this.setAnxietyPretestPoints = function (value) {
+        resp.anxietyPreTestPoints = value;
     };
 
-    this.setPosttestPoints = function(value) {
-        resp.posttestPoints = value;
+    this.setAnxietyPosttestPoints = function (value) {
+        resp.anxietyPostTestPoints = value;
     };
 
-    this.setActivityPoints = function(value) {
+    this.setFlowPostTestPoints = function (value) {
+        resp.flowPostTestPoints = value;
+    };
+
+    this.setActivityPoints = function (value) {
         resp.activityPoints = value;
     };
 
-    this.getResponse = function() {
+    this.getResponse = function () {
         return resp;
     };
 
-    this.setFlow = function(){
+    this.getFlow = function () {
         return resp.flowPretestPoints;
     };
 
-    this.getAnxiety = function() {
+    this.getAnxiety = function () {
         return resp.anxietyPretestPoints;
     };
 
-    this.setFlowPre = function(value) {
+    this.setFlowPre = function (value) {
         resp.flowPre = value;
     };
 
-    this.setAnxietyPre = function(value) {
-        resp.AnxyetyPre = value;
+    this.setAnxietyPre = function (value) {
+        resp.anxietyPre = value;
     };
 
-    this.setPost = function(value) {
-        resp.post = value;
+    this.setAnxietyPost = function (value) {
+        resp.anxietyPost = value;
     };
 
-    this.setStartTime = function(value) {
+    this.setFlowPost = function (value) {
+        resp.flowPost = value;
+    };
+
+    this.setStartTime = function (value) {
         resp.startTime = value;
     };
 
-    this.setEndTime = function(value) {
+    this.setEndTime = function (value) {
         resp.endTime = value;
     };
 
-    this.save = function() {
+    this.save = function () {
         $http({
             url: "http://localhost:8080/save-response",
             dataType: "json",
@@ -124,11 +135,11 @@ tutorServices.service("User", function($http) {
                 "Content-Type": "application/json"
             },
             data: resp
-        }).then(function(response) {
+        }).then(function (response) {
             // success
             console.log("response sent!");
 
-        }, function(response) {
+        }, function (response) {
             // failed
             console.error("Failed to submit participant response. " + response);
         });

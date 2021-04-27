@@ -13,9 +13,21 @@ angular.module("tutor", ["ngRoute", "ngResource", "ngAnimate", "ngMaterial", "ng
             templateUrl: "views/home.html",
             controller: "HomeCtrl"
         }).
+        when("/stn0",{
+            templateUrl: "views/stn-0.html",
+            controller: "HomeCtrl"
+        }).
+        when("/stn1",{
+            templateUrl: "views/stn-1.html",
+            controller: "HomeCtrl"
+        }).
         when("/posttest", {
-            templateUrl: "views/posttest.html",
-            controller: "PosttestCtrl"
+            templateUrl: "views/anxietyposttest.html",
+            controller: "AnxietyPosttestCtrl"
+        }).
+        when("/flowpost", {
+            templateUrl: "views/flowposttest.html",
+            controller: "FlowPosttestCtrl"
         }).
         when("/finish", {
             templateUrl: "views/finish.html",
@@ -24,6 +36,7 @@ angular.module("tutor", ["ngRoute", "ngResource", "ngAnimate", "ngMaterial", "ng
         otherwise({
             redirectTo: "/pretest"
         });
+        
 
 }).config(function ($mdThemingProvider) {
 

@@ -55,7 +55,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
 
     $scope.showAvatar = true;
 
-    $scope.showQuestions = false;
+    $scope.showQuestions = true;
 
     $scope.getUserColor = function(name) {
         if (name == "Alex")

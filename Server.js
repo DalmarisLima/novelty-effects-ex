@@ -26,12 +26,15 @@ app.post('/save-response', function (req, res, next) {
         req.body.gender,
         req.body.age,
         req.body.testType,
-        req.body.flowPretestPoints,
-        req.body.anxietyPretestPoints,
+        req.body.flowPreTestPoints,
+        req.body.anxietyPreTestPoints,
         req.body.activityPoints,
-        req.body.posttestPoints,
+        req.body.anxietyPostTestPoints,
+        req.body.flowPostTestPoints,
         req.body.anxietyPre,
-        req.body.post].join(";") + "\n"
+        req.body.anxietyPost,
+        req.body.flowPre,
+        req.body.flowPost].join(";") + "\n"
 
     fs.stat('responses.csv', function (err, stat) {
         if (err == null) {
@@ -44,7 +47,8 @@ app.post('/save-response', function (req, res, next) {
         else {
             //write the headers and newline
             console.log('First answer, adding headers');
-            var headers = ["responseId",
+            var headers = [
+                "responseId",
                 "startTime",
                 "endTime",
                 "gender",
@@ -54,9 +58,11 @@ app.post('/save-response', function (req, res, next) {
                 "anxietyPre",
                 "activityPoints",
                 "anxietyPost",
+                "flowPost",
                 "anxietyRawPre",
                 "anxietyRawPost",
-                "flowRawPre"].join(";") + "\n" + row
+                "flowRawPre",
+                "flowRawPost"].join(";") + "\n" + row
 
             fs.writeFile('responses.csv', headers, function (err) {
                 if (err) throw err;
