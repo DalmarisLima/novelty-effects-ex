@@ -4,11 +4,10 @@
             <div class="col-10  align-middle">
                 <h5 class="card-title">Etapa II</h5>
             </div>
-           
+            <img ng-src="{{getAvatar()}}" class="profile border border-secondary" width="50px">
         </div>
     </div>
 </div>
-
 
 <div class="container">
     <div class="container">
@@ -20,7 +19,7 @@
                         <div class="col-sm-16">
                             <div class="card-deck">
                                 <div class="card text-center mb-3">
-                                    <h5 class="card-header">Pontos</h5>
+                                    <h6 class="card-header">Pontos</h6>
                                     <div class="card-body">
                                         <h2>{{getPoints()}}</h2>
                                     </div>
@@ -31,12 +30,43 @@
                                         <h3 class="fail" layout-margin>-1</h3>
                                     </div>
                                 </div>
-                              
+                               
                             </div>
-                           
-                        </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="card mb-3" style="width: 100%;">
+                                        <div class="card-header text-center">
+                                            <h5>Ranking</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-group list-group-flush" ng-repeat="a in getUsers()"
+                                                class="list-item " style="background-color:{{getUserColor(a.name)}};">
+                                                <li class="list-group-item">
+                                                    <label class="text-left">
+                                                        <h5>{{$index+1}}.</h5>
+                                                    </label>
+                                                    <img class="rounded-circle border " flex="30" ng-src="{{a.avatar}}">
+                                                    <label>
+                                                        <h6>{{a.name}}</h6>
+                                                    </label>
+                                                    <div width="100px" layout="row" layout-align="left center">
+                                                        <img ng-src="{{getBar()}}"
+                                                            ng-repeat="z in getNumber(a.points) track by $index">
+                                                        <label class="small" layout-margin>
+                                                            <h6 class="text-secondary">{{getUserPoints($index)}}</h6>
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
                     <div class="col ">
                         <div class="col-sm-16">
                             <div class="card mb-3" style="width: 100%;" ng-show="showQuestions">
@@ -74,9 +104,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>   
+                    </div>
+
+
+                    
                 </div>
             </div>
+
         </div>
     </div>
 </div>

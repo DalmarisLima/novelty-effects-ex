@@ -1,5 +1,5 @@
-angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDialog, configService, User) {
-    console.log("HomeCtrl ok");
+angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $location, $mdDialog, configService, User) {
+    console.log("FamiliarizationCtrl ok");
 
 
     var answers = ['B', 'E', 'E', 'E', 'A', 'B', 'D', 'E', 'B', 'B', 'E', 'B', 'C', 'E', 'A', 'C', 'B', 'D', 'B', 'A'];
@@ -8,7 +8,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     var currentQuestion = 0;
     var showSet1 = true;
     var totalPoints = 0;
-    var userAvatar = "assets/" + configService.getTheme() + "/images/avatar1.png";
+ 
     var level = 0;
 
     var inc = false;
@@ -22,28 +22,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     var levelFiveFlag = true;
     var levelTenFlag = true;
 
-    var users = [{
-        name: "Alan",
-        points: 19,
-        avatar: "assets/" + configService.getTheme() + "/images/ranking1.png"
-    }, {
-        name: "Valentine",
-        points: 15,
-        avatar: "assets/" + configService.getTheme() + "/images/ranking2.png"
-    }, {
-        name: "Francis",
-        points: 13,
-        avatar: "assets/" + configService.getTheme() + "/images/ranking3.png"
-    }, {
-        name: "Danni",
-        points: 7,
-        avatar: "assets/" + configService.getTheme() + "/images/ranking4.png"
-    }, {
-        name: "Alex",
-        points: totalPoints,
-        avatar: userAvatar
-    }];
-
+   
     $scope.badges = [];
     $scope.items = ['A', 'B', 'C', 'D', 'E'];
     $scope.progress = 0;
@@ -53,7 +32,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     $scope.increment = false;
     $scope.decrement = false;
 
-    $scope.showAvatar = true;
+
 
     $scope.showQuestions = true;
 
@@ -67,7 +46,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     };
 
     $scope.hideAvatar = function() {
-        $scope.showAvatar = false;
+
         $scope.showQuestions = true;
         updatePoints(0); 
     };
@@ -76,14 +55,8 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
         return users;
     };
 
-    $scope.getImage = function(value) {
-        return "assets/" + configService.getTheme() + "/images/avatar" + value + ".png";
-    };
+  
 
-    $scope.setAvatar = function(value) {
-        userAvatar = value;
-        users[4].avatar = value;
-    };
 
     $scope.getNumber = function(num) {
         var array = new Array(num);
@@ -104,9 +77,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     };
 
 
-    $scope.checkAvatar = function() {
-        return !$scope.showAvatar;
-    };
+  
 
     $scope.setSet1 = function(value) {
         showSet1 = value;
@@ -117,7 +88,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     };
 
     $scope.showPosttest = function() {
-        $location.path("/posttest");
+        $location.path("/posttest"); /// aqui q ue faz a randomização
     };
 
     $scope.getStars = function() {
@@ -129,10 +100,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
         return "star_border";
     };
 
-    $scope.getRanking = function(value) {
-        return users[value].avatar;
-
-    };
+ 
 
     var checkBadge = function(index) {
 
@@ -166,17 +134,13 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
         return "assets/" + configService.getTheme() + "/images/" + flag + ".png";
     };
 
-    $scope.getAvatar = function() {
-        return userAvatar;
-    };
+ 
 
     $scope.getLevel = function() {
         return level;
     };
 
-    $scope.chooseAvatar = function() {
-        $scope.showAvatar = false;
-    };
+  
 
     $scope.getPoints = function() {
 
@@ -244,7 +208,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
             totalPoints += value;
             // dec = true;
             decrement = true;
-       
+            new Audio('assets/default/audio/wrong.mp3').play();
         };
 
         if (value > 0) {
@@ -252,31 +216,10 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
             totalPoints += value;
             level++;
             increment = true;
-          
+            new Audio('assets/default/audio/right.mp3').play();
         };
 
-        //updates ranking
-        users = [{
-            name: "Alan",
-            points: 19,
-            avatar: "assets/" + configService.getTheme() + "/images/ranking1.png"
-        }, {
-            name: "Valentine",
-            points: 15,
-            avatar: "assets/" + configService.getTheme() + "/images/ranking2.png"
-        }, {
-            name: "Francis",
-            points: 13,
-            avatar: "assets/" + configService.getTheme() + "/images/ranking3.png"
-        }, {
-            name: "Danni",
-            points: 7,
-            avatar: "assets/" + configService.getTheme() + "/images/ranking4.png"
-        }, {
-            name: "Alex",
-            points: totalPoints,
-            avatar: userAvatar
-        }];
+ 
 
         var sortedList = users.slice(0);
         sortedList.sort(function(a, b) {

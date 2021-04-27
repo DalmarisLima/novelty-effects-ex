@@ -9,6 +9,12 @@ angular.module("tutor", ["ngRoute", "ngResource", "ngAnimate", "ngMaterial", "ng
             templateUrl: "views/flowpretest.html",
             controller: "FlowPretestCtrl"
         }).
+ 
+        when("/familiarition", {
+            templateUrl: "views/home.html",
+            controller: "HomeCtrl"
+        }).
+
         when("/home", {
             templateUrl: "views/home.html",
             controller: "HomeCtrl"
