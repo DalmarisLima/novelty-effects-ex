@@ -1,6 +1,6 @@
 <div class="  text-white text-center bg-secondary p-3 mb-2">
     <div class="container">
-    <h5 class="card-title ">Etapa III - Questionário Final</h5>
+        <h5 class="card-title ">Etapa III - Questionário Final</h5>
     </div>
 </div>
 
@@ -12,6 +12,25 @@
             </div>
             <div class="container">
                 <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <md-input-container class="md-block col-sm-8" flex-gt-sm>
+                                <label ng-required="true">Gênero</label>
+                                <md-select ng-required="true" ng-model="gender">
+                                    <md-option ng-repeat="g in ['Masculino','Feminino', 'Prefiro não Responder']">
+                                        {{g}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Idade</label>
+                                <input type="text" name="age" ng-required="true" ng-model="age">
+                                 
+                            </md-input-container>
+                        </div>
+                    </form>
+
+
                     <p> Leia cada afirmativa abaixo e indique como você̂ se sente <strong>AGORA</strong>, neste momento.
                         Não gaste muito
                         tempo numa única afirmação, mas tente dar uma resposta que mais se aproxima de como você se

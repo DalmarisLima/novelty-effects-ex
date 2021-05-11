@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This project comprises an experimental environment to study the impact of gender stereotype threat in student anxiety",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "express": "*",
     "popper.js": "^1.16.1",
     "uuid": "*"

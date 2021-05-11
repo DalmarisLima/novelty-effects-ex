@@ -2,13 +2,13 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     console.log("HomeCtrl ok");
 
 
-    var answers = ['B', 'E', 'E', 'E', 'A', 'B', 'D', 'E', 'B', 'B', 'E', 'B', 'C', 'E', 'A', 'C', 'B', 'D', 'B', 'A'];
+    var answers = ['B', 'B', 'E', 'B', 'C'];
     var userAnswer = null;
     var totalPoints = 0;
     var currentQuestion = 0;
     var showSet1 = true;
     var totalPoints = 0;
-    var userAvatar = "assets/" + configService.getTheme() + "/images/avatar1.png";
+    var userAvatar = "assets/stFemale/images/avatar1.png";
     var level = 0;
 
     var inc = false;
@@ -25,21 +25,21 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     var users = [{
         name: "Alan",
         points: 19,
-        avatar: "assets/" + configService.getTheme() + "/images/ranking1.png"
+        avatar: "assets/stFemale/images/ranking1.png"
     }, {
         name: "Valentine",
         points: 15,
-        avatar: "assets/" + configService.getTheme() + "/images/ranking2.png"
+        avatar: "assets/stFemale/images/ranking2.png"
     }, {
         name: "Francis",
         points: 13,
-        avatar: "assets/" + configService.getTheme() + "/images/ranking3.png"
+        avatar: "assets/stFemale/images/ranking3.png"
     }, {
         name: "Danni",
         points: 7,
-        avatar: "assets/" + configService.getTheme() + "/images/ranking4.png"
+        avatar: "assets/stFemale/images/ranking4.png"
     }, {
-        name: "Alex",
+        name: "Você",
         points: totalPoints,
         avatar: userAvatar
     }];
@@ -58,7 +58,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     $scope.showQuestions = true;
 
     $scope.getUserColor = function(name) {
-        if (name == "Alex")
+        if (name == "Você")
             return "#e0e0e0";
         return "white";
     };
@@ -77,7 +77,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     };
 
     $scope.getImage = function(value) {
-        return "assets/" + configService.getTheme() + "/images/avatar" + value + ".png";
+        return "assets/stFemale/images/avatar" + value + ".png";
     };
 
     $scope.setAvatar = function(value) {
@@ -95,7 +95,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     };
 
     $scope.getBar = function() {
-        return "assets/" + configService.getTheme() + "/images/bar.png";
+        return "assets/stFemale/images/bar.png";
 
     };
 
@@ -163,7 +163,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
 
         //  console.log("flag: " + flag + " check: " + checkBadge(id));
 
-        return "assets/" + configService.getTheme() + "/images/" + flag + ".png";
+        return "assets/stFemale/images/" + flag + ".png";
     };
 
     $scope.getAvatar = function() {
@@ -184,7 +184,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     };
 
     $scope.question = function() {
-        return "assets/" + configService.getTheme() + "/images/q-0.png";
+        return "assets/stFemale/images/q-0.jpg";
     };
 
     $scope.dynamicTheme = function() {
@@ -214,16 +214,13 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
     var setMsgType = function(type) {
 
         if (type == "red") {
-            currentMessage = "Resposta Errada!"
+            currentMessage = "Resposta Errada"
         } else {
-            currentMessage = "Resposta Certa!"
+            currentMessage = "Resposta Certa"
         };
     };
 
     var playAnimation = function(type) {
-
-        console.log("playing animation: " + type);
-
 
         bgColor = type;
         flagMessage = true;
@@ -244,7 +241,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
             totalPoints += value;
             // dec = true;
             decrement = true;
-       
+           
         };
 
         if (value > 0) {
@@ -252,28 +249,28 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
             totalPoints += value;
             level++;
             increment = true;
-          
+        
         };
 
         //updates ranking
         users = [{
             name: "Alan",
             points: 19,
-            avatar: "assets/" + configService.getTheme() + "/images/ranking1.png"
+            avatar: "assets/stFemale/images/ranking1.png"
         }, {
             name: "Valentine",
             points: 15,
-            avatar: "assets/" + configService.getTheme() + "/images/ranking2.png"
+            avatar: "assets/stFemale/images/ranking2.png"
         }, {
             name: "Francis",
             points: 13,
-            avatar: "assets/" + configService.getTheme() + "/images/ranking3.png"
+            avatar: "assets/stFemale/images/ranking3.png"
         }, {
             name: "Danni",
             points: 7,
-            avatar: "assets/" + configService.getTheme() + "/images/ranking4.png"
+            avatar: "assets/stFemale/images/ranking4.png"
         }, {
-            name: "Alex",
+            name: "Você",
             points: totalPoints,
             avatar: userAvatar
         }];
@@ -327,7 +324,7 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
 
                 setTimeout(function() {
                     $mdDialog.hide();
-                }, 2000);
+                }, 200000);
 
 
             } else if (totalPoints == 50 && levelTenFlag) {
@@ -344,10 +341,10 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
 
                 setTimeout(function() {
                     $mdDialog.hide();
-                }, 2500);
+                }, 250000);
 
 
-            } else if (currentQuestion == 19) {
+            } else if (currentQuestion == 4) {
                 $mdDialog.show({
                     controller: 'BadgeCtrl',
                     templateUrl: 'views/badge.html',
@@ -389,12 +386,12 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
         };
 
         currentQuestion++;
-        $scope.progress = 100 * (currentQuestion + 1) / 20;
+        $scope.progress = 100 * (currentQuestion + 1) / 5;
         $scope.question = function() {
-            return "assets/" + configService.getTheme() + "/images/q-" + currentQuestion + ".png";
+            return "assets/stFemale/images/q-" + currentQuestion + ".jpg";
         };
 
-        if (currentQuestion >= 20) {
+        if (currentQuestion >= 5) {
             configService.addBadge(2);
 
             //  configService.setNext(true);

@@ -1,14 +1,14 @@
-angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $location, $mdDialog, configService, User) {
-    console.log("FamiliarizationCtrl ok");
+angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDialog, configService, User) {
+    console.log("FamiliarizationCtr ok");
 
 
-    var answers = ['B', 'E', 'E', 'E', 'A', 'B', 'D', 'E', 'B', 'B', 'E', 'B', 'C', 'E', 'A', 'C', 'B', 'D', 'B', 'A'];
+    var answers = ['A', 'D', 'E', 'C', 'A'];
     var userAnswer = null;
     var totalPoints = 0;
     var currentQuestion = 0;
     var showSet1 = true;
     var totalPoints = 0;
- 
+    var userAvatar = "assets/default/images/avatar1.png";
     var level = 0;
 
     var inc = false;
@@ -16,13 +16,38 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
 
     var bgColor = "white";
 
+
+
     var currentMessage = "Correto!"
     var flagMessage = false;
 
     var levelFiveFlag = true;
     var levelTenFlag = true;
 
-   
+    var users = [{
+        name: "Alan",
+        points: 19,
+        avatar: "assets/default/images/ranking1.png"
+    }, {
+        name: "Valentine",
+        points: 15,
+        avatar: "assets/default/images/ranking2.png"
+    }, {
+        name: "Francis",
+        points: 13,
+        avatar: "assets/default/images/ranking3.png"
+    }, {
+        name: "Danni",
+        points: 7,
+        avatar: "assets/default/images/ranking4.png"
+    }, {
+        name: "Você",
+        points: totalPoints,
+        avatar: userAvatar
+    }];
+
+
+
     $scope.badges = [];
     $scope.items = ['A', 'B', 'C', 'D', 'E'];
     $scope.progress = 0;
@@ -32,12 +57,12 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
     $scope.increment = false;
     $scope.decrement = false;
 
-
+    $scope.showAvatar = true;
 
     $scope.showQuestions = true;
 
     $scope.getUserColor = function(name) {
-        if (name == "Alex")
+        if (name == "Você")
             return "#e0e0e0";
         return "white";
     };
@@ -46,7 +71,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
     };
 
     $scope.hideAvatar = function() {
-
+        $scope.showAvatar = false;
         $scope.showQuestions = true;
         updatePoints(0); 
     };
@@ -55,8 +80,14 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
         return users;
     };
 
-  
+    $scope.getImage = function(value) {
+        return "assets/default/images/avatar" + value + ".png";
+    };
 
+    $scope.setAvatar = function(value) {
+        userAvatar = value;
+        users[4].avatar = value;
+    };
 
     $scope.getNumber = function(num) {
         var array = new Array(num);
@@ -68,7 +99,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
     };
 
     $scope.getBar = function() {
-        return "assets/" + configService.getTheme() + "/images/bar.png";
+        return "assets/default/images/bar.png";
 
     };
 
@@ -77,7 +108,9 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
     };
 
 
-  
+    $scope.checkAvatar = function() {
+        return !$scope.showAvatar;
+    };
 
     $scope.setSet1 = function(value) {
         showSet1 = value;
@@ -87,9 +120,6 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
         return configService.getNext();
     };
 
-    $scope.showPosttest = function() {
-        $location.path("/posttest"); /// aqui q ue faz a randomização
-    };
 
     $scope.getStars = function() {
 
@@ -100,7 +130,10 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
         return "star_border";
     };
 
- 
+    $scope.getRanking = function(value) {
+        return users[value].avatar;
+
+    };
 
     var checkBadge = function(index) {
 
@@ -131,16 +164,20 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
 
         //  console.log("flag: " + flag + " check: " + checkBadge(id));
 
-        return "assets/" + configService.getTheme() + "/images/" + flag + ".png";
+        return "assets/default/images/" + flag + ".png";
     };
 
- 
+    $scope.getAvatar = function() {
+        return userAvatar;
+    };
 
     $scope.getLevel = function() {
         return level;
     };
 
-  
+    $scope.chooseAvatar = function() {
+        $scope.showAvatar = false;
+    };
 
     $scope.getPoints = function() {
 
@@ -148,7 +185,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
     };
 
     $scope.question = function() {
-        return "assets/" + configService.getTheme() + "/images/q-0.png";
+        return "assets/default/images/q-0.jpg";
     };
 
     $scope.dynamicTheme = function() {
@@ -178,15 +215,15 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
     var setMsgType = function(type) {
 
         if (type == "red") {
-            currentMessage = "Resposta Errada!"
+            currentMessage = "Resposta Errada"
         } else {
-            currentMessage = "Resposta Certa!"
+            currentMessage = "Resposta Certa"
         };
     };
 
     var playAnimation = function(type) {
 
-        console.log("playing animation: " + type);
+    
 
 
         bgColor = type;
@@ -208,7 +245,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
             totalPoints += value;
             // dec = true;
             decrement = true;
-            new Audio('assets/default/audio/wrong.mp3').play();
+           
         };
 
         if (value > 0) {
@@ -216,10 +253,31 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
             totalPoints += value;
             level++;
             increment = true;
-            new Audio('assets/default/audio/right.mp3').play();
+        
         };
 
- 
+        //updates ranking
+        users = [{
+            name: "Alan",
+            points: 19,
+            avatar: "assets/default/images/ranking1.png"
+        }, {
+            name: "Valentine",
+            points: 15,
+            avatar: "assets/default/images/ranking2.png"
+        }, {
+            name: "Francis",
+            points: 13,
+            avatar: "assets/default/images/ranking3.png"
+        }, {
+            name: "Danni",
+            points: 7,
+            avatar: "assets/default/images/ranking4.png"
+        }, {
+            name: "Você",
+            points: totalPoints,
+            avatar: userAvatar
+        }];
 
         var sortedList = users.slice(0);
         sortedList.sort(function(a, b) {
@@ -270,7 +328,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
 
                 setTimeout(function() {
                     $mdDialog.hide();
-                }, 2000);
+                }, 2000000);
 
 
             } else if (totalPoints == 50 && levelTenFlag) {
@@ -287,13 +345,13 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
 
                 setTimeout(function() {
                     $mdDialog.hide();
-                }, 2500);
+                }, 20000000);
 
 
-            } else if (currentQuestion == 19) {
+            } else if (currentQuestion == 4) {
                 $mdDialog.show({
                     controller: 'BadgeCtrl',
-                    templateUrl: 'views/badge.html',
+                    templateUrl: 'views/badgeFami.html',
                     parent: angular.element(document.body),
                     clickOutsideToClose: true,
                     fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
@@ -332,12 +390,12 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $loca
         };
 
         currentQuestion++;
-        $scope.progress = 100 * (currentQuestion + 1) / 20;
+        $scope.progress = 100 * (currentQuestion + 1) / 5;
         $scope.question = function() {
-            return "assets/" + configService.getTheme() + "/images/q-" + currentQuestion + ".png";
+            return "assets/default/images/q-" + currentQuestion + ".jpg";
         };
 
-        if (currentQuestion >= 20) {
+        if (currentQuestion >= 5) {
             configService.addBadge(2);
 
             //  configService.setNext(true);

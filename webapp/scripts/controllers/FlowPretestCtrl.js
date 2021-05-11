@@ -1,8 +1,4 @@
-angular.module("tutor").controller("FlowPretestCtrl", function ($scope, $location, configService, User, ) {
-
-    var themes = ["default", "stFemale", "stMale"];
-
-    var random = Math.floor((Math.random() * 10000)) % 3;
+angular.module("tutor").controller("FlowPretestCtrl", function ($scope, $location, configService, User, ) {   
 
     $scope.questions = [
         "Minhas habilidades combinam com o desafio que estou experimentando",
@@ -48,15 +44,15 @@ angular.module("tutor").controller("FlowPretestCtrl", function ($scope, $locatio
             var sum = ans.reduce(add, 0);
 
             console.log(ans);
-            console.log("FLOW PRETEST:" + sum)
+            console.log("flowPRETEST:" + sum)
 
-            configService.setTheme(themes[random]);
-            User.setTestType(themes[random]);
+        
             User.setFlowPretestPoints(sum);
             User.setFlowPre(ans);
+            
 
             console.log(User.getResponse());
-            $location.path("/home")
+            $location.path("/familiarization")
         }
 
     }

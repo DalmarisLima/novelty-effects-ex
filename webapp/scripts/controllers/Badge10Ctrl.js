@@ -1,5 +1,5 @@
-angular.module('tutor').controller("Badge10Ctrl", function($scope, configService) {
+angular.module('tutor').controller("Badge10Ctrl", function($scope) {
     $scope.getImage = function() {
-        return "assets/" + configService.getTheme() + "/images/badge10.png";
+        return "assets/default/images/badge10.png";
     };
 });

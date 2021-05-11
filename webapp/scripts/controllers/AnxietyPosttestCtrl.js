@@ -35,7 +35,8 @@ angular.module('tutor').controller("AnxietyPosttestCtrl", function ($scope, $loc
             function add(a, b) {
                 return parseInt(a) + parseInt(b);
             }
-
+            User.setGender($scope.gender);
+            User.setAge($scope.age);
             User.setAnxietyPosttestPoints(sum);
             User.setAnxietyPost(ans);
 

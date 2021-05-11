@@ -2,7 +2,7 @@ var tutorServices = angular.module("tutor.services", []);
 
 tutorServices.service("configService", function () {
 
-    var opts = ["default", "stMale", "stFemale"];
+    var opts = ["stnF", "stn1", "stn2"];
 
     var random = Math.floor((Math.random() * 123457)) % 3;
     var currentTheme = opts[random];
@@ -59,7 +59,7 @@ tutorServices.service("User", function ($http) {
     };
 
     this.setGender = function (value) {
-        resp.gender = value;
+        resp.gender = value;    
     };
 
     this.setAge = function (value) {
@@ -128,7 +128,7 @@ tutorServices.service("User", function ($http) {
 
     this.save = function () {
         $http({
-            url: "http://localhost:8080/save-response",
+            url: "https://weblab.nees.com.br/dalmaris/save-response",
             dataType: "json",
             method: "POST",
             headers: {

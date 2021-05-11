@@ -1,12 +1,6 @@
-<md-dialog flex="40" aria-label="Right answer" ng-controller="Badge5Ctrl">
-    <md-dialog-content layout="column" layout-align="center center" layout-padding>
-        <h1>Parabéns!!</h1>
-        <div layout="row" layout-align="center center">
-            <img ng-src="{{getImage()}}" flex="70">
+<div class="alert alert-light" role="alert" ng-controller="Badge5Ctrl">
+    <h4 class="modal-header text-center">Parabéns! Você finalizou o questionário!</h4>
+        <div class="text-center">
+            <img ng-src="{{getImage()}}" flex="30">
         </div>
-        <audio autoplay>
-            <source src="assets/default/audio/right.ogg" type="audio/ogg">
-            <source src="assets/default/audio/right.mp3" type="audio/mpeg">
-        </audio>
-        <md-dialog-content>
-</md-dialog>
+</div>

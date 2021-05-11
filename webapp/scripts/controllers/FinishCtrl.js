@@ -1,7 +1,9 @@
 angular.module('tutor').controller("FinishCtrl", function($scope, User) {
 
     $scope.populationAnxiety = 40.1 * 100 / 80;
-    $scope.userAnxiety = User.getAnxiety() * 100 / 80;
+    $scope.userAnxiety = User.setAnxietyPre() * 100 / 80;
+    $scope.populationFlow = 40.1 * 100 / 80;
+    $scope.userFlow = User.setFlowPre() * 100 / 80;
 
     $scope.share = function() {
         FB.ui({
@@ -14,4 +16,4 @@ angular.module('tutor').controller("FinishCtrl", function($scope, User) {
             layout: 'button'
         }, function(response) {});
     };
-});
+});    

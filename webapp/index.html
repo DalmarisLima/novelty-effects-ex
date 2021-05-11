@@ -3,7 +3,8 @@
 
 <head lang="pt_BR">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Estudo sobre Ansiedade</title>
+    <title>Estudo sobre Gamificação</title>
+    <link rel="shortcut icon" href="assets/default/images/favicon.ico">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta property="fb:app_id" content="259201801144935" />
     <meta property="og:url" content="http://ansiedade.tk/" />
@@ -14,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body ng-app="tutor" ng-controller="IndexCtrl" class="bg">
@@ -45,6 +47,36 @@
     <script src="scripts/controllers/AvatarCtrl.js"></script>
     <script src="scripts/controllers/FamililarizationCtrl.js"></script>
 
+    <script type="text/javascript">
+        function random() {
+            theme = [,
+                "http://localhost:8080/#/stnF",
+                "http://localhost:8080/#/stn1",
+                "http://localhost:8080/#/stn2"];
+            themeCount = theme.length;
+            sortedTheme = Math.floor(Math.random() * themeCount);
+
+            console.log(theme)
+            console.log("RANDOM" + sortedTheme)
+
+            if (sortedTheme == 0) {
+                window.location.replace(theme[1]);
+            }
+            else {
+                window.location.replace(theme[sortedTheme]);
+            }
+            this.setTheme = function (sortedTheme) {
+        currentTheme = sortedTheme;
+        console. log(currentTheme)
+    };
+
+    this.getTheme = function () {
+        return currentTheme;
+    };
+        };
+    </script>
+
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -55,6 +87,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>

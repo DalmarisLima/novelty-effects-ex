@@ -1,24 +1,102 @@
-<div layout="column" flex="100" layout-align="center center">
-    <md-card flex="40">
-        <md-card-content>
-            <h1>Resultado:</h1>
-            <div layout="row" layout-align="center center" layout-margin>
-                <div layout="column" layout-align="center center">
-                    <label><b>Meu Nível de Ansiedade</b></label>
-                    <canvas-gauge width="350" under-color="#EFEFEF" over-color="#FF4500" value="userAnxiety" mask="(@)" style="color: gray"></canvas-gauge>
+
+<div class="  text-white text-center bg-secondary p-3 mb-2">
+    <div class="container">
+    <h5 class="card-title "> <img src="https://img.icons8.com/emoji/48/000000/party-popper.png"/> Obrigado Por Participar  <img src="https://img.icons8.com/emoji/48/000000/party-popper.png"/></h5>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h5>Resultado</h5>
+        </div>
+
+        <div class="container">
+            <div class="card-body">
+                <div class="row container card-body">
+                    <div class="container">
+                        <h6>Contribua ainda mais com este estudo compartilhando-o nas suas redes sociais:</h6>
+                        
+                        <a href="http://twitter.com/share?url=http://pt.stackoverflow.com/&text=<TEXT>&via=<VIA>" target="_blank" class="long-share-btn twitter">
+                            <i class="fa fa-twitter"></i> Twitter
+                        </a>
+                         
+                        <a href="http://www.facebook.com/sharer/sharer.php?u=http://pt.stackoverflow.com/" ng-click="share()" target="_blank" class="long-share-btn facebook">
+                            <i class="fa fa-facebook-square"></i> Facebook
+                        </a>
+                    </div>
                 </div>
-                <div layout="column" layout-align="center center">
-                    <label><b>Outros Usuários</b></label>
-                    <canvas-gauge width="350" under-color="#EFEFEF" over-color="#00D700" value="populationAnxiety" mask="(@)" style="color: gray"></canvas-gauge>
+                <div class="card-body">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h6>Seu Estado de Ansiedade em relação ao demais usuários</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col">
+                                    <div class="row"> 
+                                        <canvas-gauge width="250" class="mx-auto d-block" under-color="#EFEFEF" over-color="#32CD32"
+                                        value="userAnxiety" mask="(@)" style="color: gray"></canvas-gauge>
+                                    </div>
+                                   <div class="row">
+                                    <label class="mx-auto d-block" style="color:#32CD32 ;"><strong> Você </strong></label>
+                                   </div> 
+                                </div>
+
+                                <div class="col">
+                                    <div class="row"> 
+                                        <canvas-gauge  class="mx-auto d-block" width="250" under-color="#EFEFEF" over-color="#4682B4"
+                                        value="populationAnxiety" mask="(@)" style="color: gray"></canvas-gauge>
+                                    </div>
+                                   <div class="row">
+                                    <label class="mx-auto d-block"><strong style="color:#4682B4 ;"> Outros Usuários</strong></label>
+                                   </div>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card-body">
+
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h6>Seu Estado de Flow em relação ao demais usuários</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row"> 
+                                        <canvas-gauge  class="mx-auto d-block" width="250" under-color="#EFEFEF" over-color="#32CD32"
+                                        value="userFlow" mask="(@)" style="color: gray"></canvas-gauge>
+                                    </div>
+                                   <div class="row">
+                                    <label class="mx-auto d-block"><strong style="color:#32CD32 ;">Você</strong></label>
+                                   </div>  
+                                </div>
+                                
+
+
+                                <div class="col">
+                                    <div class="row"> 
+                                        <canvas-gauge  class="mx-auto d-block" width="250" under-color="#EFEFEF" over-color="#1E90FF"
+                                        value="populationFlow" mask="(@)" style="color: gray"></canvas-gauge>
+                                    </div>
+                                   <div class="row">
+                                    <label class="mx-auto d-block"><strong style="color:#1E90FF ;"> Outros Usuários</strong></label>
+                                   </div>  
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </md-card-content>
-    </md-card>
-    <div layout-margin>
-        <span>Contribua ainda mais com este estudo compartilhando-o no Facebook:</span>
-        <div layout="column" layout-align="center center">
-            <div id="shareBtn" class="btnz facebook" ng-click="share()">Compartilhar no Facebook</div>
-            <h2> Obrigado!</h2>
         </div>
     </div>
+
+   
 </div>

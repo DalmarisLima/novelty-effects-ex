@@ -10,21 +10,21 @@ angular.module("tutor", ["ngRoute", "ngResource", "ngAnimate", "ngMaterial", "ng
             controller: "FlowPretestCtrl"
         }).
  
-        when("/familiarition", {
-            templateUrl: "views/home.html",
-            controller: "HomeCtrl"
+        when("/familiarization", {
+            templateUrl: "views/familiarization.html",
+            controller: "FamiliarizationCtrl"
         }).
 
-        when("/home", {
-            templateUrl: "views/home.html",
-            controller: "HomeCtrl"
-        }).
-        when("/stn0",{
-            templateUrl: "views/stn-0.html",
+        when("/stnF", {
+            templateUrl: "views/stnF.html",
             controller: "HomeCtrl"
         }).
         when("/stn1",{
-            templateUrl: "views/stn-1.html",
+            templateUrl: "views/stn1.html",
+            controller: "HomeCtrl"
+        }).
+        when("/stn2",{
+            templateUrl: "views/stn2.html",
             controller: "HomeCtrl"
         }).
         when("/posttest", {

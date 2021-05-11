@@ -1,4 +1,4 @@
-angular.module('tutor').controller("AnxietyPretestCtrl", function ($scope, $window, $location, configService, User) {
+angular.module('tutor').controller("AnxietyPretestCtrl", function ($scope, $location, User) {
 
 
     $scope.questions = [
@@ -39,13 +39,10 @@ angular.module('tutor').controller("AnxietyPretestCtrl", function ($scope, $wind
             console.log(ans);
             console.log("AnxietyPRETEST: " + sum);
 
-            User.setGender($scope.gender);
-            User.setAge($scope.age);
+           
             User.setAnxietyPretestPoints(sum);
             User.setAnxietyPre(ans);
-
             console.log(User.getResponse());
-            // User.save();
             $location.path("/flowpre");
 
         };
