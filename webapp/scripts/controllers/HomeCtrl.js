@@ -35,10 +35,6 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
         points: 13,
         avatar: "assets/stFemale/images/ranking3.png"
     }, {
-        name: "Danni",
-        points: 7,
-        avatar: "assets/stFemale/images/ranking4.png"
-    }, {
         name: "Você",
         points: totalPoints,
         avatar: userAvatar
@@ -265,10 +261,6 @@ angular.module('tutor').controller("HomeCtrl", function($scope, $location, $mdDi
             name: "Francis",
             points: 13,
             avatar: "assets/stFemale/images/ranking3.png"
-        }, {
-            name: "Danni",
-            points: 7,
-            avatar: "assets/stFemale/images/ranking4.png"
         }, {
             name: "Você",
             points: totalPoints,
