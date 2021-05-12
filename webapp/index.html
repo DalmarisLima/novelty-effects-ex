@@ -50,9 +50,9 @@
     <script type="text/javascript">
         function random() {
             theme = [,
-                "http://localhost:8080/#/stnF",
-                "http://localhost:8080/#/stn1",
-                "http://localhost:8080/#/stn2"];
+                "https://weblab.nees.com.br/dalmaris/#/stnF",
+                "https://weblab.nees.com.br/dalmaris/#/stn1",
+                "https://weblab.nees.com.br/dalmaris/#/stn2"];
             themeCount = theme.length;
             sortedTheme = Math.floor(Math.random() * themeCount);
 
@@ -66,13 +66,13 @@
                 window.location.replace(theme[sortedTheme]);
             }
             this.setTheme = function (sortedTheme) {
-        currentTheme = sortedTheme;
-        console. log(currentTheme)
-    };
+                currentTheme = sortedTheme;
+                console.log(currentTheme)
+            };
 
-    this.getTheme = function () {
-        return currentTheme;
-    };
+            this.getTheme = function () {
+                return currentTheme;
+            };
         };
     </script>
 

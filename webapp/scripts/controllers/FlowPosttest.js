@@ -46,7 +46,6 @@ angular.module('tutor').controller("FlowPosttestCtrl", function ($scope, $locati
             User.setFlowPostTestPoints(sum);
             User.setFlowPost(ans);
             User.setEndTime(time);
-            User.save();
 
             $location.path("/finish");
 

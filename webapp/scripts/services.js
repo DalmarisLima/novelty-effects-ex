@@ -95,11 +95,11 @@ tutorServices.service("User", function ($http) {
     };
 
     this.getFlow = function () {
-        return resp.flowPretestPoints;
+        return resp.setFlowPostTestPoints;
     };
 
     this.getAnxiety = function () {
-        return resp.anxietyPretestPoints;
+        return resp.anxietyPostTestPoints;
     };
 
     this.setFlowPre = function (value) {
