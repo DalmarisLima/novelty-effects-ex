@@ -47,36 +47,6 @@
     <script src="scripts/controllers/AvatarCtrl.js"></script>
     <script src="scripts/controllers/FamililarizationCtrl.js"></script>
 
-    <script type="text/javascript">
-        function random() {
-            theme = [,
-                "https://weblab.nees.com.br/dalmaris/#/stnF",
-                "https://weblab.nees.com.br/dalmaris/#/stn1",
-                "https://weblab.nees.com.br/dalmaris/#/stn2"];
-            themeCount = theme.length;
-            sortedTheme = Math.floor(Math.random() * themeCount);
-
-            console.log(theme)
-            console.log("RANDOM" + sortedTheme)
-
-            if (sortedTheme == 0) {
-                window.location.replace(theme[1]);
-            }
-            else {
-                window.location.replace(theme[sortedTheme]);
-            }
-            this.setTheme = function (sortedTheme) {
-                currentTheme = sortedTheme;
-                console.log(currentTheme)
-            };
-
-            this.getTheme = function () {
-                return currentTheme;
-            };
-        };
-    </script>
-
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

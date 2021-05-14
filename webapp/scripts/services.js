@@ -2,11 +2,7 @@ var tutorServices = angular.module("tutor.services", []);
 
 tutorServices.service("configService", function () {
 
-    var opts = ["stnF", "stn1", "stn2"];
-
-    var random = Math.floor((Math.random() * 123457)) % 3;
-    var currentTheme = opts[random];
-    // var currentTheme = "default";
+ 
 
 
     var next = false;

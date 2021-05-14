@@ -1,6 +1,9 @@
-angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDialog, configService, User) {
+angular.module('tutor').controller("FamiliarizationCtrl", function ($scope, $mdDialog, $location, configService, User) {
     console.log("FamiliarizationCtr ok");
 
+    var opts = ["stnF", "stn1", "stn2"];
+    var optsCount = opts.length;
+    var random = Math.floor((Math.random() * optsCount)) %3;
 
     var answers = ['A', 'D', 'E', 'C', 'A'];
     var userAnswer = null;
@@ -61,35 +64,35 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
 
     $scope.showQuestions = true;
 
-    $scope.getUserColor = function(name) {
+    $scope.getUserColor = function (name) {
         if (name == "Você")
             return "#e0e0e0";
         return "white";
     };
-    $scope.getBgColor = function() {
+    $scope.getBgColor = function () {
         return bgColor;
     };
 
-    $scope.hideAvatar = function() {
+    $scope.hideAvatar = function () {
         $scope.showAvatar = false;
         $scope.showQuestions = true;
-        updatePoints(0); 
+        updatePoints(0);
     };
 
-    $scope.getUsers = function() {
+    $scope.getUsers = function () {
         return users;
     };
 
-    $scope.getImage = function(value) {
+    $scope.getImage = function (value) {
         return "assets/default/images/avatar" + value + ".png";
     };
 
-    $scope.setAvatar = function(value) {
+    $scope.setAvatar = function (value) {
         userAvatar = value;
         users[4].avatar = value;
     };
 
-    $scope.getNumber = function(num) {
+    $scope.getNumber = function (num) {
         var array = new Array(num);
         for (var i = 0; i < num; i++) {
             array.push(i);
@@ -98,30 +101,30 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
         return array;
     };
 
-    $scope.getBar = function() {
+    $scope.getBar = function () {
         return "assets/default/images/bar.png";
 
     };
 
-    $scope.checkSet1 = function() {
+    $scope.checkSet1 = function () {
         return showSet1;
     };
 
 
-    $scope.checkAvatar = function() {
+    $scope.checkAvatar = function () {
         return !$scope.showAvatar;
     };
 
-    $scope.setSet1 = function(value) {
+    $scope.setSet1 = function (value) {
         showSet1 = value;
     };
 
-    $scope.showNext = function() {
+    $scope.showNext = function () {
         return configService.getNext();
     };
 
 
-    $scope.getStars = function() {
+    $scope.getStars = function () {
 
         if (configService.nextOn) {
             return "star";
@@ -130,18 +133,18 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
         return "star_border";
     };
 
-    $scope.getRanking = function(value) {
+    $scope.getRanking = function (value) {
         return users[value].avatar;
 
     };
 
-    var checkBadge = function(index) {
+    var checkBadge = function (index) {
 
         return configService.getBadges()[index];
     };
 
 
-    $scope.getBadge = function(name) {
+    $scope.getBadge = function (name) {
 
         var id = 0;
 
@@ -167,52 +170,50 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
         return "assets/default/images/" + flag + ".png";
     };
 
-    $scope.getAvatar = function() {
+    $scope.getAvatar = function () {
         return userAvatar;
     };
 
-    $scope.getLevel = function() {
+    $scope.getLevel = function () {
         return level;
     };
 
-    $scope.chooseAvatar = function() {
+    $scope.chooseAvatar = function () {
         $scope.showAvatar = false;
     };
 
-    $scope.getPoints = function() {
+    $scope.getPoints = function () {
 
         return totalPoints;
     };
 
-    $scope.question = function() {
+    $scope.question = function () {
         return "assets/default/images/q-0.jpg";
     };
 
-    $scope.dynamicTheme = function() {
-        return configService.getTheme();
-    };
+
     var setCurrent = function setCurrent(index) {
         userAnswer = $scope.items[index];
     };
 
-    $scope.getCurrent = function() {
+    $scope.getCurrent = function () {
         return Math.trunc(totalPoints / 10);
     };
 
-    $scope.getQuestion = function() {
+    $scope.getQuestion = function () {
         return currentQuestion + 1;
     };
 
-    $scope.getUserName = function(index) {
+    $scope.getUserName = function (index) {
         return users[index].name;
     };
 
-    $scope.getUserPoints = function(index) {
+    $scope.getUserPoints = function (index) {
 
         return users[index].points;
     };
 
-    var setMsgType = function(type) {
+    var setMsgType = function (type) {
 
         if (type == "red") {
             currentMessage = "Resposta Errada"
@@ -221,9 +222,9 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
         };
     };
 
-    var playAnimation = function(type) {
+    var playAnimation = function (type) {
 
-    
+
 
 
         bgColor = type;
@@ -231,21 +232,21 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
 
         setMsgType(type);
 
-        setTimeout(function() {
-            $scope.$apply(function() {
+        setTimeout(function () {
+            $scope.$apply(function () {
                 bgColor = "white";
                 flagMessage = false;
             });
         }, 2000);
     };
 
-    var updatePoints = function(value) {
+    var updatePoints = function (value) {
 
         if (value < 0 && (totalPoints + value) >= 0) {
             totalPoints += value;
             // dec = true;
             decrement = true;
-           
+
         };
 
         if (value > 0) {
@@ -253,7 +254,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
             totalPoints += value;
             level++;
             increment = true;
-        
+
         };
 
         //updates ranking
@@ -280,13 +281,13 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
         }];
 
         var sortedList = users.slice(0);
-        sortedList.sort(function(a, b) {
+        sortedList.sort(function (a, b) {
             return a.points - b.points;
         });
 
         users = sortedList.reverse();
 
-        setTimeout(function() {
+        setTimeout(function () {
             $scope.decrement = false;
             $scope.increment = false;
         }, 1000);
@@ -294,15 +295,34 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
 
     };
 
-    $scope.getMessage = function() {
+    $scope.getMessage = function () {
         return currentMessage;
     };
 
-    $scope.showMessage = function() {
+    $scope.showMessage = function () {
         return flagMessage;
     }
 
-    $scope.processAnswer = function(value) {
+
+
+    $scope.showPosttest = function () {
+    
+        if (random == 0) {
+            $location.path("/stnF");
+        }
+        else if (random == 1) {
+            $location.path("/stn1");
+        }
+
+        else if (random == 2){
+            $location.path("/stn2")
+        }
+       
+    };
+
+
+
+    $scope.processAnswer = function (value) {
         setCurrent(value);
         var dialogType = null;
 
@@ -326,7 +346,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
 
                 configService.addBadge(0);
 
-                setTimeout(function() {
+                setTimeout(function () {
                     $mdDialog.hide();
                 }, 2000000);
 
@@ -343,7 +363,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
 
                 configService.addBadge(1);
 
-                setTimeout(function() {
+                setTimeout(function () {
                     $mdDialog.hide();
                 }, 20000000);
 
@@ -359,7 +379,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
 
                 configService.addBadge(2);
 
-                setTimeout(function() {
+                setTimeout(function () {
                     $mdDialog.hide();
                 }, 2500);
             };
@@ -380,7 +400,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
             configService.addBadge(2);
 
             showSet1 = false;
-            setTimeout(function() {
+            setTimeout(function () {
                 $mdDialog.hide();
             }, 2500);
         } else {
@@ -391,7 +411,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
 
         currentQuestion++;
         $scope.progress = 100 * (currentQuestion + 1) / 5;
-        $scope.question = function() {
+        $scope.question = function () {
             return "assets/default/images/q-" + currentQuestion + ".jpg";
         };
 
@@ -400,7 +420,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
 
             //  configService.setNext(true);
             User.setActivityPoints(totalPoints);
-      
+
             console.log(User.getResponse());
             console.log(userAnswer);//vamos ver
             //  $location.path("/home");
@@ -408,6 +428,7 @@ angular.module('tutor').controller("FamiliarizationCtrl", function($scope, $mdDi
 
             $scope.showQuestions = false;
         };
-
+        User.setTestType(opts[random]);
+        console.log(random);
     };
 });
