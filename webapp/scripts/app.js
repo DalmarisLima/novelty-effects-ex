@@ -42,6 +42,7 @@ angular.module("tutor", ["ngRoute", "ngResource", "ngAnimate", "ngMaterial", "ng
         otherwise({
             redirectTo: "/pretest"
         });
+
         
 
 }).config(function ($mdThemingProvider) {
@@ -67,6 +68,10 @@ angular.module("tutor", ["ngRoute", "ngResource", "ngAnimate", "ngMaterial", "ng
         .warnPalette("blue");
 
 });
+
+
+
+
 
 //GLOBAL - FACEBOOK API
 window.fbAsyncInit = function () {

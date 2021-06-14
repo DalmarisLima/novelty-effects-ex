@@ -39,6 +39,8 @@
                     </div>
                     <div class="col ">
                         <div class="col-sm-16">
+
+
                             <div class="card mb-3" style="width: 100%;" ng-show="showQuestions">
                                 <div class="card-header text-center">
                                     <p class="card-title">
@@ -55,13 +57,13 @@
                                     <div ng-repeat="item in items " ng-click="processAnswer($index)">
                                         <button class="btn btn-outline-secondary border-0 ">Letra {{item}}</button>
                                     </div>
+                                    
 
                                     <div class="alert text-center"
                                         style="background-color:{{getBgColor()}}; color:white" ng-show="showMessage()">
                                         {{getMessage()}}
                                     </div>
                                 </div>
-
                             </div>
                             <div ng-if="!checkSet1()">
                                 <div class="card">

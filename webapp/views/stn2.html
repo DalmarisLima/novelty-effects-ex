@@ -108,8 +108,10 @@
                                 <img class="card-img-top" src="{{question()}} " alt="Imagem de capa do card">
                                 <div class="card-body">
                                     <h5 class="card-title text-left">A resposta certa é:</h5>
-                                    <div ng-repeat="item in items " ng-click="processAnswer($index)">
-                                        <button class="btn btn-outline-secondary border-0 ">Letra {{item}}</button>
+                                   
+                                    <div class="list-group" ng-repeat="item in items" ng-click="processAnswer($index)">
+                                        <button type="button" class="list-group-item list-group-item-action">Letra
+                                            {{item}}</button>
                                     </div>
 
                                     <div class="alert text-center"

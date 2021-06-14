@@ -1,11 +1,11 @@
-  <div class="navbar text-white bg-secondary p-3 mb-2">
-        <div class="container">
-            <div class="col-10  align-middle">
-                <h5 class="card-title">Etapa II - Simulado </h5>
-            </div>
-           
+<div class="navbar text-white bg-secondary p-3 mb-2">
+    <div class="container">
+        <div class="col-10  align-middle">
+            <h5 class="card-title">Etapa II - Simulado </h5>
         </div>
+
     </div>
+</div>
 
 <div class="container">
     <div class="container">
@@ -14,19 +14,19 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="col-sm-16">    
-                                <div class="card text-center mb-3">
-                                    <h6 class="card-header">Pontos</h6>
-                                    <div class="card-body">
-                                        <h2>{{getPoints()}}</h2>
-                                    </div>
-                                    <div ng-if="increment">
-                                        <h3 class="success" layout-margin>+1</h3>
-                                    </div>
-                                    <div ng-if="decrement">
-                                        <h3 class="fail" layout-margin>-1</h3>
-                                    </div>
-                                </div>                
+                        <div class="col-sm-16">
+                            <div class="card text-center mb-3">
+                                <h6 class="card-header">Pontos</h6>
+                                <div class="card-body">
+                                    <h2>{{getPoints()}}</h2>
+                                </div>
+                                <div ng-if="increment">
+                                    <h3 class="success" layout-margin>+1</h3>
+                                </div>
+                                <div ng-if="decrement">
+                                    <h3 class="fail" layout-margin>-1</h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col ">
@@ -44,8 +44,10 @@
                                 <img class="card-img-top" src="{{question()}} " alt="Imagem de capa do card">
                                 <div class="card-body">
                                     <h5 class="card-title text-left">A resposta certa é:</h5>
-                                    <div ng-repeat="item in items " ng-click="processAnswer($index)">
-                                        <button class="btn btn-outline-secondary border-0 ">Letra {{item}}</button>
+
+                                    <div class="list-group" ng-repeat="item in items" ng-click="processAnswer($index)">
+                                        <button type="button" class="list-group-item list-group-item-action">Letra
+                                            {{item}}</button>
                                     </div>
 
                                     <div class="alert text-center"
@@ -54,19 +56,20 @@
                                     </div>
                                 </div>
 
+
                             </div>
                             <div ng-if="!checkSet1()">
                                 <div class="card">
                                     <h3 class="card-body text-center">Etapa finalizada</h3>
                                     <div class="container">
                                         <button ng-click="showPosttest()" class="btn btn-secondary"
-                                        style="width: 100%; margin-top: 25px; margin-bottom: 15px;">
-                                        Continuar</button>
+                                            style="width: 100%; margin-top: 25px; margin-bottom: 15px;">
+                                            Continuar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>   
+                    </div>
                 </div>
             </div>
         </div>
