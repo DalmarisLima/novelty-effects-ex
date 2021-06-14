@@ -83,7 +83,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title text-left">A resposta certa é:</h5>
                                     
-                                    <div class="list-group" ng-repeat="item in items" ng-click="processAnswer()">
+                                    <div class="list-group" ng-repeat="item in items" ng-click="processAnswer($index)">
                                         <button type="button" class="list-group-item list-group-item-action">Letra
                                             {{item}}</button>
                                     </div>
